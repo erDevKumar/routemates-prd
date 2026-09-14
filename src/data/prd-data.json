@@ -1,0 +1,250 @@
+[
+  {
+    "id": "E1",
+    "title": "Authentication & Onboarding",
+    "type": "Epic",
+    "description": "User registration, login, password recovery, and initial onboarding flows.",
+    "status": "Done",
+    "children": [
+      {
+        "id": "E1-S1",
+        "title": "User Registration",
+        "type": "Story",
+        "description": "Users can create a new account via email or phone.",
+        "status": "Done",
+        "children": [
+          { "id": "E1-S1-T1", "title": "Implement Welcome Screen", "type": "Task", "status": "Done" },
+          { "id": "E1-S1-T2", "title": "Sign Up via Email Flow", "type": "Task", "status": "Done" },
+          { "id": "E1-S1-T3", "title": "Sign Up via Phone Flow (SMS OTP)", "type": "Task", "status": "Done" },
+          { "id": "E1-S1-T4", "title": "Backend: JWT Generation & Validation", "type": "Task", "status": "Done" }
+        ]
+      },
+      {
+        "id": "E1-S2",
+        "title": "Password Recovery",
+        "type": "Story",
+        "description": "Users can recover lost passwords securely.",
+        "status": "Done",
+        "children": [
+          { "id": "E1-S2-T1", "title": "Forgot Password Request UI", "type": "Task", "status": "Done" },
+          { "id": "E1-S2-T2", "title": "Reset Code Entry UI", "type": "Task", "status": "Done" },
+          { "id": "E1-S2-T3", "title": "Set New Password UI", "type": "Task", "status": "Done" },
+          { "id": "E1-S2-T4", "title": "Backend: Mailer/WhatsApp OTP Integration", "type": "Task", "status": "Done" }
+        ]
+      },
+      {
+        "id": "E1-S3",
+        "title": "Initial Profile Setup",
+        "type": "Story",
+        "description": "First-time users must set up their basic profile and preferences.",
+        "status": "Done",
+        "children": [
+          { "id": "E1-S3-T1", "title": "Basic Profile Setup Screen", "type": "Task", "status": "Done" },
+          { "id": "E1-S3-T2", "title": "Preferences Setup Screen", "type": "Task", "status": "Done" },
+          { "id": "E1-S3-T3", "title": "Onboarding Complete state handler", "type": "Task", "status": "Done" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "E2",
+    "title": "Identity & Vehicles",
+    "type": "Epic",
+    "description": "User identity verification and vehicle management (crucial for drivers).",
+    "status": "In Progress",
+    "children": [
+      {
+        "id": "E2-S1",
+        "title": "Identity Verification",
+        "type": "Story",
+        "description": "Users must verify their identity via document upload.",
+        "status": "In Progress",
+        "children": [
+          { "id": "E2-S1-T1", "title": "Verify Identity Introduction UI", "type": "Task", "status": "Done" },
+          { "id": "E2-S1-T2", "title": "Document Upload Flow (Media Picker)", "type": "Task", "status": "In Progress" },
+          { "id": "E2-S1-T3", "title": "Verification Pending State UI", "type": "Task", "status": "Done" },
+          { "id": "E2-S1-T4", "title": "Backend: Media upload service", "type": "Task", "status": "In Progress" }
+        ]
+      },
+      {
+        "id": "E2-S2",
+        "title": "Vehicle Management",
+        "type": "Story",
+        "description": "Users can add, edit, and manage their vehicles.",
+        "status": "Todo",
+        "children": [
+          { "id": "E2-S2-T1", "title": "Vehicle Setup UI (During Onboarding)", "type": "Task", "status": "Done" },
+          { "id": "E2-S2-T2", "title": "Vehicle Management Dashboard (Post-Onboarding)", "type": "Task", "status": "Todo" },
+          { "id": "E2-S2-T3", "title": "Backend: Vehicle Schema and CRUD APIs", "type": "Task", "status": "Done" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "E3",
+    "title": "Trip Management",
+    "type": "Epic",
+    "description": "Creating, joining, editing, and viewing trips.",
+    "status": "In Progress",
+    "children": [
+      {
+        "id": "E3-S1",
+        "title": "Trip Creation & Editing",
+        "type": "Story",
+        "description": "Users can create new trips and edit upcoming ones.",
+        "status": "In Progress",
+        "children": [
+          { "id": "E3-S1-T1", "title": "Create Trip UI Form", "type": "Task", "status": "Done" },
+          { "id": "E3-S1-T2", "title": "Edit Trip Details Form", "type": "Task", "status": "In Progress" },
+          { "id": "E3-S1-T3", "title": "Backend: Trip Repository & Creation API", "type": "Task", "status": "Done" }
+        ]
+      },
+      {
+        "id": "E3-S2",
+        "title": "Trip Discovery & Joining",
+        "type": "Story",
+        "description": "Users can browse trips, join via code, or scan a QR.",
+        "status": "Todo",
+        "children": [
+          { "id": "E3-S2-T1", "title": "Trip List Tab UI", "type": "Task", "status": "Done" },
+          { "id": "E3-S2-T2", "title": "Join Trip via Link/Code", "type": "Task", "status": "In Progress" },
+          { "id": "E3-S2-T3", "title": "QR Scanner implementation", "type": "Task", "status": "Todo" },
+          { "id": "E3-S2-T4", "title": "Trip Details Screen", "type": "Task", "status": "Done" }
+        ]
+      },
+      {
+        "id": "E3-S3",
+        "title": "Trip Members",
+        "type": "Story",
+        "description": "Managing participants on a specific trip.",
+        "status": "Todo",
+        "children": [
+          { "id": "E3-S3-T1", "title": "Trip Members List UI", "type": "Task", "status": "Todo" },
+          { "id": "E3-S3-T2", "title": "Remove/Approve Member Logic", "type": "Task", "status": "Todo" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "E4",
+    "title": "Map & Live Routing",
+    "type": "Epic",
+    "description": "Live navigation, location tracking, and map rendering.",
+    "status": "In Progress",
+    "children": [
+      {
+        "id": "E4-S1",
+        "title": "Live Trip Map",
+        "type": "Story",
+        "description": "Dedicated map activity for active trip navigation.",
+        "status": "In Progress",
+        "children": [
+          { "id": "E4-S1-T1", "title": "TripMapActivity Implementation", "type": "Task", "status": "Done" },
+          { "id": "E4-S1-T2", "title": "Render Route Polylines", "type": "Task", "status": "In Progress" },
+          { "id": "E4-S1-T3", "title": "Backend: Directions API integration", "type": "Task", "status": "Done" }
+        ]
+      },
+      {
+        "id": "E4-S2",
+        "title": "Location Services",
+        "type": "Story",
+        "description": "Background location updates and tracking.",
+        "status": "Todo",
+        "children": [
+          { "id": "E4-S2-T1", "title": "Foreground Service for Location", "type": "Task", "status": "Todo" },
+          { "id": "E4-S2-T2", "title": "Broadcast location to trip members", "type": "Task", "status": "Todo" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "E5",
+    "title": "Social, Chat & Explore",
+    "type": "Epic",
+    "description": "Community features, discovering contacts, and in-app chat.",
+    "status": "In Progress",
+    "children": [
+      {
+        "id": "E5-S1",
+        "title": "Explore & Community",
+        "type": "Story",
+        "description": "Explore feeds and community posts.",
+        "status": "Todo",
+        "children": [
+          { "id": "E5-S1-T1", "title": "Explore Tab UI", "type": "Task", "status": "Todo" },
+          { "id": "E5-S1-T2", "title": "Community Screen", "type": "Task", "status": "Todo" },
+          { "id": "E5-S1-T3", "title": "Contacts Discovery Sync", "type": "Task", "status": "Todo" }
+        ]
+      },
+      {
+        "id": "E5-S2",
+        "title": "In-App Messaging",
+        "type": "Story",
+        "description": "Private and group chats for trips.",
+        "status": "Todo",
+        "children": [
+          { "id": "E5-S2-T1", "title": "Chat List Tab UI", "type": "Task", "status": "Todo" },
+          { "id": "E5-S2-T2", "title": "Chat Detail Screen (Messaging)", "type": "Task", "status": "Todo" },
+          { "id": "E5-S2-T3", "title": "Backend: Real-time messaging service", "type": "Task", "status": "Todo" }
+        ]
+      },
+      {
+        "id": "E5-S3",
+        "title": "Notifications System",
+        "type": "Story",
+        "description": "In-app alerts and push notifications.",
+        "status": "Done",
+        "children": [
+          { "id": "E5-S3-T1", "title": "Notifications List Screen", "type": "Task", "status": "Done" },
+          { "id": "E5-S3-T2", "title": "Backend: Push notification service (FCM)", "type": "Task", "status": "Done" },
+          { "id": "E5-S3-T3", "title": "Handle Push Deep Links", "type": "Task", "status": "Done" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "E6",
+    "title": "Settings, Profile & Legal",
+    "type": "Epic",
+    "description": "User preferences, memberships, and legal compliance.",
+    "status": "Done",
+    "children": [
+      {
+        "id": "E6-S1",
+        "title": "Profile & Account Management",
+        "type": "Story",
+        "description": "Managing personal info and account security.",
+        "status": "Done",
+        "children": [
+          { "id": "E6-S1-T1", "title": "View Profile Screen", "type": "Task", "status": "Done" },
+          { "id": "E6-S1-T2", "title": "Edit Profile Details", "type": "Task", "status": "Done" },
+          { "id": "E6-S1-T3", "title": "Account Security Settings", "type": "Task", "status": "Done" }
+        ]
+      },
+      {
+        "id": "E6-S2",
+        "title": "App Preferences",
+        "type": "Story",
+        "description": "General settings and memberships.",
+        "status": "Done",
+        "children": [
+          { "id": "E6-S2-T1", "title": "Main Settings Menu", "type": "Task", "status": "Done" },
+          { "id": "E6-S2-T2", "title": "Membership/Subscription UI", "type": "Task", "status": "Todo" },
+          { "id": "E6-S2-T3", "title": "App Tour Trigger", "type": "Task", "status": "Done" }
+        ]
+      },
+      {
+        "id": "E6-S3",
+        "title": "Legal & Compliance",
+        "type": "Story",
+        "description": "Displaying terms and policies securely.",
+        "status": "Done",
+        "children": [
+          { "id": "E6-S3-T1", "title": "Privacy Policy Screen", "type": "Task", "status": "Done" },
+          { "id": "E6-S3-T2", "title": "Terms & Conditions Screen", "type": "Task", "status": "Done" },
+          { "id": "E6-S3-T3", "title": "Backend: Legal text delivery service", "type": "Task", "status": "Done" }
+        ]
+      }
+    ]
+  }
+]
