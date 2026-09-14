@@ -1,104 +1,80 @@
-import React, { useState, useEffect, useRef } from 'react';
-import initialData from './data/prd-data.json';
+import React, { useState, useEffect } from 'react';
+import './App.css';
 import { PrdTree } from './components/PrdTree';
-import './index.css';
+import { JiraDetailPanel } from './components/JiraDetailPanel';
+import defaultData from './data/prd-data.json';
 
-// Helper to generate IDs
-const generateId = (type) => `${type.charAt(0)}-${Math.random().toString(36).substr(2, 6)}`;
+const generateId = (prefix) => `${prefix}-${Math.floor(Math.random() * 1000000)}`;
+
+// Helper to recursively update a node in the tree
+const updateNodeInTree = (nodes, id, updates) => {
+  return nodes.map(node => {
+    if (node.id === id) {
+      return { ...node, ...updates };
+    }
+    if (node.children && node.children.length > 0) {
+      return { ...node, children: updateNodeInTree(node.children, id, updates) };
+    }
+    return node;
+  });
+};
+
+// Helper to delete a node
+const deleteNodeFromTree = (nodes, id) => {
+  return nodes.filter(node => node.id !== id).map(node => {
+    if (node.children) {
+      return { ...node, children: deleteNodeFromTree(node.children, id) };
+    }
+    return node;
+  });
+};
+
+// Helper to add a child to a specific parent
+const addNodeToParent = (nodes, parentId, newNode) => {
+  return nodes.map(node => {
+    if (node.id === parentId) {
+      return { ...node, children: [...(node.children || []), newNode] };
+    }
+    if (node.children && node.children.length > 0) {
+      return { ...node, children: addNodeToParent(node.children, parentId, newNode) };
+    }
+    return node;
+  });
+};
+
+// Helper to find a node by ID
+const findNodeById = (nodes, id) => {
+  for (const node of nodes) {
+    if (node.id === id) return node;
+    if (node.children) {
+      const found = findNodeById(node.children, id);
+      if (found) return found;
+    }
+  }
+  return null;
+};
 
 function App() {
-  const [prdData, setPrdData] = useState([]);
-  const fileInputRef = useRef(null);
+  const [prdData, setPrdData] = useState(() => {
+    const saved = localStorage.getItem('prdData');
+    return saved ? JSON.parse(saved) : defaultData;
+  });
+  
+  const [selectedNodeId, setSelectedNodeId] = useState(null);
 
   useEffect(() => {
-    const savedData = localStorage.getItem('routemates_prd_data');
-    if (savedData) {
-      try {
-        setPrdData(JSON.parse(savedData));
-      } catch (e) {
-        console.error("Failed to parse local storage data");
-        setPrdData(initialData);
-      }
-    } else {
-      setPrdData(initialData);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (prdData.length > 0) {
-      localStorage.setItem('routemates_prd_data', JSON.stringify(prdData));
-    }
+    localStorage.setItem('prdData', JSON.stringify(prdData));
   }, [prdData]);
 
-  const updateNode = (nodes, id, updates) => {
-    return nodes.map(node => {
-      if (node.id === id) {
-        return { ...node, ...updates };
-      }
-      if (node.children) {
-        return { ...node, children: updateNode(node.children, id, updates) };
-      }
-      return node;
-    });
+  const handleUpdateNode = (id, updates) => {
+    setPrdData(prev => updateNodeInTree(prev, id, updates));
   };
 
-  const deleteNode = (nodes, id) => {
-    return nodes.filter(node => {
-      if (node.id === id) return false;
-      if (node.children) {
-        node.children = deleteNode(node.children, id);
-      }
-      return true;
-    });
+  const handleDeleteNode = (id) => {
+    setPrdData(prev => deleteNodeFromTree(prev, id));
+    if (selectedNodeId === id) setSelectedNodeId(null);
   };
 
-  const addNodeToParent = (nodes, parentId, newNode) => {
-    return nodes.map(node => {
-      if (node.id === parentId) {
-        return {
-          ...node,
-          children: [...(node.children || []), newNode]
-        };
-      }
-      if (node.children) {
-        return { ...node, children: addNodeToParent(node.children, parentId, newNode) };
-      }
-      return node;
-    });
-  };
-
-  const addAttachmentToNode = (nodes, id, attachment) => {
-    return nodes.map(node => {
-      if (node.id === id) {
-        return {
-          ...node,
-          attachments: [...(node.attachments || []), attachment]
-        };
-      }
-      if (node.children) {
-        return { ...node, children: addAttachmentToNode(node.children, id, attachment) };
-      }
-      return node;
-    });
-  };
-
-  const deleteAttachmentFromNode = (nodes, id, attachmentIndex) => {
-    return nodes.map(node => {
-      if (node.id === id) {
-        const newAttachments = [...(node.attachments || [])];
-        newAttachments.splice(attachmentIndex, 1);
-        return { ...node, attachments: newAttachments };
-      }
-      if (node.children) {
-        return { ...node, children: deleteAttachmentFromNode(node.children, id, attachmentIndex) };
-      }
-      return node;
-    });
-  };
-
-  const handleUpdate = (id, updates) => setPrdData(prev => updateNode(prev, id, updates));
-  const handleDelete = (id) => setPrdData(prev => deleteNode(prev, id));
-  
   const handleAddChild = (parentId, childType) => {
     const newNode = {
       id: generateId(childType),
@@ -106,6 +82,9 @@ function App() {
       type: childType,
       description: '',
       status: 'Todo',
+      priority: 'Medium',
+      assignee: '',
+      labels: [],
       children: [],
       attachments: []
     };
@@ -114,6 +93,7 @@ function App() {
     } else {
       setPrdData(prev => [...prev, newNode]);
     }
+    setSelectedNodeId(newNode.id);
   };
 
   const handleAddAttachment = (id, file) => {
@@ -125,98 +105,114 @@ function App() {
         type: file.type,
         data: base64Data
       };
-      setPrdData(prev => addAttachmentToNode(prev, id, attachment));
+      
+      setPrdData(prev => {
+        return prev.map(node => updateNodeAttachments(node, id, attachment));
+      });
     };
     reader.readAsDataURL(file);
   };
 
-  const handleDeleteAttachment = (id, index) => {
-    setPrdData(prev => deleteAttachmentFromNode(prev, id, index));
+  const updateNodeAttachments = (node, id, newAttachment) => {
+    if (node.id === id) {
+      return { ...node, attachments: [...(node.attachments || []), newAttachment] };
+    }
+    if (node.children) {
+      return { ...node, children: node.children.map(child => updateNodeAttachments(child, id, newAttachment)) };
+    }
+    return node;
   };
 
-  const handleExport = () => {
+  const handleDeleteAttachment = (id, attachmentIndex) => {
+    setPrdData(prev => {
+      return prev.map(node => removeNodeAttachment(node, id, attachmentIndex));
+    });
+  };
+
+  const removeNodeAttachment = (node, id, index) => {
+    if (node.id === id) {
+      const newAttachments = [...(node.attachments || [])];
+      newAttachments.splice(index, 1);
+      return { ...node, attachments: newAttachments };
+    }
+    if (node.children) {
+      return { ...node, children: node.children.map(child => removeNodeAttachment(child, id, index)) };
+    }
+    return node;
+  };
+
+  const exportData = () => {
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(prdData, null, 2));
     const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("href",     dataStr);
     downloadAnchorNode.setAttribute("download", "routemates_prd.json");
-    document.body.appendChild(downloadAnchorNode);
+    document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
   };
 
-  const handleImport = (event) => {
-    const file = event.target.files[0];
+  const handleImport = (e) => {
+    const file = e.target.files[0];
     if (!file) return;
-
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = (event) => {
       try {
-        const importedData = JSON.parse(e.target.result);
-        if (Array.isArray(importedData)) {
-          setPrdData(importedData);
-          alert("PRD data imported successfully!");
-        } else {
-          alert("Invalid file format. Please upload a valid PRD JSON array.");
-        }
+        const json = JSON.parse(event.target.result);
+        setPrdData(json);
+        setSelectedNodeId(null);
       } catch (err) {
-        alert("Error parsing JSON file.");
+        alert("Invalid JSON file");
       }
     };
     reader.readAsText(file);
-    event.target.value = null;
+    e.target.value = null;
   };
 
-  const handleReset = () => {
-    if (window.confirm("Are you sure you want to reset to the original default PRD data? All unsaved local changes will be lost.")) {
-      setPrdData(initialData);
-    }
-  };
+  const selectedNode = selectedNodeId ? findNodeById(prdData, selectedNodeId) : null;
 
   return (
     <div className="app-container">
       <header>
         <div>
           <h1>Routemates PRD</h1>
-          <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
-            Interactive Agile Management Platform
-          </p>
+          <p style={{ color: 'var(--text-secondary)', margin: '0.5rem 0 0 0' }}>Agile Product Requirements Platform</p>
         </div>
         <div className="header-actions">
-          <button className="btn" onClick={() => handleAddChild(null, 'Epic')}>
-            + New Epic
-          </button>
-          <button className="btn" onClick={handleReset} title="Reset to original seed data">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
-            Reset
-          </button>
-          <input 
-            type="file" 
-            accept=".json" 
-            style={{ display: 'none' }} 
-            ref={fileInputRef}
-            onChange={handleImport}
-          />
-          <button className="btn" onClick={() => fileInputRef.current.click()}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          <label className="btn">
             Import JSON
-          </button>
-          <button className="btn btn-primary" onClick={handleExport}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Export to GitHub
-          </button>
+            <input type="file" accept=".json" style={{ display: 'none' }} onChange={handleImport} />
+          </label>
+          <button className="btn btn-primary" onClick={exportData}>Export to GitHub</button>
         </div>
       </header>
 
-      <main className="glass-panel" style={{ padding: '2rem' }}>
-        <PrdTree 
-          data={prdData} 
-          onUpdate={handleUpdate} 
-          onDelete={handleDelete}
-          onAddChild={handleAddChild}
-          onAddAttachment={handleAddAttachment}
-          onDeleteAttachment={handleDeleteAttachment}
-        />
-      </main>
+      <div className="two-pane-layout">
+        <div className="pane-left glass-panel">
+          <div className="pane-header">
+            <h3>Hierarchy</h3>
+            <button className="btn-small btn-primary" onClick={() => handleAddChild(null, 'Epic')}>+ Epic</button>
+          </div>
+          <div className="pane-scroll-area">
+            <PrdTree 
+              data={prdData}
+              selectedNodeId={selectedNodeId}
+              onSelectNode={setSelectedNodeId}
+              onUpdate={handleUpdateNode}
+              onDelete={handleDeleteNode}
+              onAddChild={handleAddChild}
+            />
+          </div>
+        </div>
+
+        <div className="pane-right">
+          <JiraDetailPanel 
+            node={selectedNode}
+            onUpdate={handleUpdateNode}
+            onAddAttachment={handleAddAttachment}
+            onDeleteAttachment={handleDeleteAttachment}
+          />
+        </div>
+      </div>
     </div>
   );
 }
