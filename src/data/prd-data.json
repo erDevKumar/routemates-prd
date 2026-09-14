@@ -13,7 +13,16 @@
         "description": "Users can create a new account via email or phone.",
         "status": "Done",
         "children": [
-          { "id": "E1-S1-T1", "title": "Implement Welcome Screen", "type": "Task", "status": "Done" },
+          { 
+            "id": "E1-S1-T1", 
+            "title": "Implement Welcome Screen", 
+            "type": "Task", 
+            "status": "Done",
+            "children": [
+              { "id": "E1-S1-T1-ST1", "title": "Design Figma Mockup", "type": "Subtask", "status": "Done" },
+              { "id": "E1-S1-T1-ST2", "title": "Write Jetpack Compose layout", "type": "Subtask", "status": "Done" }
+            ]
+          },
           { "id": "E1-S1-T2", "title": "Sign Up via Email Flow", "type": "Task", "status": "Done" },
           { "id": "E1-S1-T3", "title": "Sign Up via Phone Flow (SMS OTP)", "type": "Task", "status": "Done" },
           { "id": "E1-S1-T4", "title": "Backend: JWT Generation & Validation", "type": "Task", "status": "Done" }
