@@ -1,257 +1,1207 @@
 [
   {
-    "id": "E1",
+    "id": "Epic-624654",
     "title": "Authentication & Onboarding",
     "type": "Epic",
-    "description": "User registration, login, password recovery, and initial onboarding flows.",
-    "status": "Done",
+    "description": "User registration, login, and initial onboarding flows based on OnboardingNavRoute.",
+    "status": "Todo",
+    "priority": "High",
+    "assignee": "",
+    "labels": [
+      "Android",
+      "V1"
+    ],
+    "attachments": [],
     "children": [
       {
-        "id": "E1-S1",
-        "title": "User Registration",
+        "id": "Story-720743",
+        "title": "Welcome & Auth Methods",
         "type": "Story",
-        "description": "Users can create a new account via email or phone.",
-        "status": "Done",
+        "description": "Users can sign up via Email or Phone",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { 
-            "id": "E1-S1-T1", 
-            "title": "Implement Welcome Screen", 
-            "type": "Task", 
-            "status": "Done",
+          {
+            "id": "Task-32713",
+            "title": "Implement WelcomeNavRoute Screen",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
             "children": [
-              { "id": "E1-S1-T1-ST1", "title": "Design Figma Mockup", "type": "Subtask", "status": "Done" },
-              { "id": "E1-S1-T1-ST2", "title": "Write Jetpack Compose layout", "type": "Subtask", "status": "Done" }
+              {
+                "id": "Subtask-688130",
+                "title": "Design UI",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-357219",
+                "title": "Implement Navigation",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
             ]
           },
-          { "id": "E1-S1-T2", "title": "Sign Up via Email Flow", "type": "Task", "status": "Done" },
-          { "id": "E1-S1-T3", "title": "Sign Up via Phone Flow (SMS OTP)", "type": "Task", "status": "Done" },
-          { "id": "E1-S1-T4", "title": "Backend: JWT Generation & Validation", "type": "Task", "status": "Done" }
+          {
+            "id": "Task-83838",
+            "title": "CreateAccountNavRoute Implementation",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-754117",
+                "title": "Add Form Fields",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-846926",
+                "title": "Validation Logic",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "Task-155734",
+            "title": "SignUpEmailNavRoute Flow",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-900908",
+                "title": "Email verification",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-244809",
+                "title": "API Integration",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "Task-84313",
+            "title": "SignUpPhoneNavRoute Flow",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-987439",
+                "title": "OTP Screen",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-878934",
+                "title": "SMS Gateway Logic",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          }
         ]
       },
       {
-        "id": "E1-S2",
+        "id": "Story-869243",
         "title": "Password Recovery",
         "type": "Story",
         "description": "Users can recover lost passwords securely.",
-        "status": "Done",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E1-S2-T1", "title": "Forgot Password Request UI", "type": "Task", "status": "Done" },
-          { "id": "E1-S2-T2", "title": "Reset Code Entry UI", "type": "Task", "status": "Done" },
-          { "id": "E1-S2-T3", "title": "Set New Password UI", "type": "Task", "status": "Done" },
-          { "id": "E1-S2-T4", "title": "Backend: Mailer/WhatsApp OTP Integration", "type": "Task", "status": "Done" }
+          {
+            "id": "Task-483192",
+            "title": "ForgotPasswordNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-199230",
+            "title": "ResetCodeNavRoute Integration",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-480605",
+            "title": "SetNewPasswordNavRoute Logic",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-34662",
+            "title": "PasswordResetSuccessNavRoute",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
         ]
       },
       {
-        "id": "E1-S3",
-        "title": "Initial Profile Setup",
+        "id": "Story-646054",
+        "title": "Profile & Preferences Setup",
         "type": "Story",
         "description": "First-time users must set up their basic profile and preferences.",
-        "status": "Done",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E1-S3-T1", "title": "Basic Profile Setup Screen", "type": "Task", "status": "Done" },
-          { "id": "E1-S3-T2", "title": "Preferences Setup Screen", "type": "Task", "status": "Done" },
-          { "id": "E1-S3-T3", "title": "Onboarding Complete state handler", "type": "Task", "status": "Done" }
+          {
+            "id": "Task-181553",
+            "title": "ProfileSetupNavRoute Screen",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-754751",
+            "title": "VehicleSetupNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-460841",
+            "title": "PreferencesSetupNavRoute logic",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
         ]
-      }
-    ]
-  },
-  {
-    "id": "E2",
-    "title": "Identity & Vehicles",
-    "type": "Epic",
-    "description": "User identity verification and vehicle management (crucial for drivers).",
-    "status": "In Progress",
-    "children": [
+      },
       {
-        "id": "E2-S1",
+        "id": "Story-492437",
         "title": "Identity Verification",
         "type": "Story",
-        "description": "Users must verify their identity via document upload.",
-        "status": "In Progress",
+        "description": "KYC and Identity Verification flows.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E2-S1-T1", "title": "Verify Identity Introduction UI", "type": "Task", "status": "Done" },
-          { "id": "E2-S1-T2", "title": "Document Upload Flow (Media Picker)", "type": "Task", "status": "In Progress" },
-          { "id": "E2-S1-T3", "title": "Verification Pending State UI", "type": "Task", "status": "Done" },
-          { "id": "E2-S1-T4", "title": "Backend: Media upload service", "type": "Task", "status": "In Progress" }
+          {
+            "id": "Task-43466",
+            "title": "VerifyIdentityNavRoute Integration",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-286563",
+            "title": "VerifyIdentityUploadNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-737306",
+                "title": "Camera permissions",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-20382",
+                "title": "Image upload logic",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "Task-643852",
+            "title": "VerificationPendingNavRoute",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-575285",
+            "title": "OnboardingCompleteNavRoute handler",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
         ]
       },
       {
-        "id": "E2-S2",
-        "title": "Vehicle Management",
+        "id": "Story-111378",
+        "title": "Legal Documents",
         "type": "Story",
-        "description": "Users can add, edit, and manage their vehicles.",
+        "description": "In-app legal documents (Privacy/Terms).",
         "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E2-S2-T1", "title": "Vehicle Setup UI (During Onboarding)", "type": "Task", "status": "Done" },
-          { "id": "E2-S2-T2", "title": "Vehicle Management Dashboard (Post-Onboarding)", "type": "Task", "status": "Todo" },
-          { "id": "E2-S2-T3", "title": "Backend: Vehicle Schema and CRUD APIs", "type": "Task", "status": "Done" }
+          {
+            "id": "Task-720817",
+            "title": "PrivacyPolicyNavRoute Screen",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-56414",
+            "title": "TermsNavRoute Screen",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
         ]
       }
     ]
   },
   {
-    "id": "E3",
+    "id": "Epic-999211",
+    "title": "Home & Dashboard",
+    "type": "Epic",
+    "description": "Main dashboard and bottom navigation based on HomeNavRoute.",
+    "status": "Todo",
+    "priority": "High",
+    "assignee": "",
+    "labels": [
+      "Android",
+      "V1"
+    ],
+    "attachments": [],
+    "children": [
+      {
+        "id": "Story-332493",
+        "title": "Main Dashboard",
+        "type": "Story",
+        "description": "Central hub for the user.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
+        "children": [
+          {
+            "id": "Task-159937",
+            "title": "DashboardNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-794454",
+                "title": "BottomNavTab Integration",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-334897",
+                "title": "HomeFeed data loading",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "Task-789930",
+            "title": "ExploreNavRoute Map View",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "Story-254477",
+        "title": "Notifications",
+        "type": "Story",
+        "description": "Notification center.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
+        "children": [
+          {
+            "id": "Task-382223",
+            "title": "NotificationsNavRoute Screen",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-288081",
+                "title": "FCM Integration",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-808420",
+                "title": "List View UI",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Story-705721",
+        "title": "App Tour",
+        "type": "Story",
+        "description": "User guidance and tooltips.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
+        "children": [
+          {
+            "id": "Task-554045",
+            "title": "AppTourNavRoute logic",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-627942",
+                "title": "Tooltip Overlay",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-254425",
+                "title": "State tracking",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Epic-906080",
     "title": "Trip Management",
     "type": "Epic",
-    "description": "Creating, joining, editing, and viewing trips.",
-    "status": "In Progress",
+    "description": "Creating, joining, and managing trips natively.",
+    "status": "Todo",
+    "priority": "High",
+    "assignee": "",
+    "labels": [
+      "Android",
+      "V1"
+    ],
+    "attachments": [],
     "children": [
       {
-        "id": "E3-S1",
-        "title": "Trip Creation & Editing",
+        "id": "Story-870784",
+        "title": "Trip Creation",
         "type": "Story",
-        "description": "Users can create new trips and edit upcoming ones.",
-        "status": "In Progress",
+        "description": "Create and Edit trip screens.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E3-S1-T1", "title": "Create Trip UI Form", "type": "Task", "status": "Done" },
-          { "id": "E3-S1-T2", "title": "Edit Trip Details Form", "type": "Task", "status": "In Progress" },
-          { "id": "E3-S1-T3", "title": "Backend: Trip Repository & Creation API", "type": "Task", "status": "Done" }
+          {
+            "id": "Task-489329",
+            "title": "CreateTripNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-761966",
+                "title": "Form validation",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-157712",
+                "title": "API POST request",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "Task-960220",
+            "title": "EditTripNavRoute Logic",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-444464",
+                "title": "Route param parsing",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-539636",
+                "title": "State hydration",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          }
         ]
       },
       {
-        "id": "E3-S2",
-        "title": "Trip Discovery & Joining",
+        "id": "Story-259091",
+        "title": "Trip Discovery",
         "type": "Story",
-        "description": "Users can browse trips, join via code, or scan a QR.",
+        "description": "Join Trip via link/code, QR Scanner, and Trip List.",
         "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E3-S2-T1", "title": "Trip List Tab UI", "type": "Task", "status": "Done" },
-          { "id": "E3-S2-T2", "title": "Join Trip via Link/Code", "type": "Task", "status": "In Progress" },
-          { "id": "E3-S2-T3", "title": "QR Scanner implementation", "type": "Task", "status": "Todo" },
-          { "id": "E3-S2-T4", "title": "Trip Details Screen", "type": "Task", "status": "Done" }
+          {
+            "id": "Task-214755",
+            "title": "JoinTripNavRoute Deeplink handling",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-380885",
+                "title": "Parse query parameters",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "Task-952540",
+            "title": "QrScannerNavRoute Implementation",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-453582",
+                "title": "CameraX integration",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-525104",
+                "title": "QR decoding",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "Task-539782",
+            "title": "TripListNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
         ]
       },
       {
-        "id": "E3-S3",
-        "title": "Trip Members",
+        "id": "Story-132845",
+        "title": "Trip Details & Members",
         "type": "Story",
-        "description": "Managing participants on a specific trip.",
+        "description": "Detail screen and Trip Members management.",
         "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E3-S3-T1", "title": "Trip Members List UI", "type": "Task", "status": "Todo" },
-          { "id": "E3-S3-T2", "title": "Remove/Approve Member Logic", "type": "Task", "status": "Todo" }
+          {
+            "id": "Task-144731",
+            "title": "TripDetailNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-882705",
+            "title": "TripMembersNavRoute Management",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "Story-408533",
+        "title": "Live Map Tracking",
+        "type": "Story",
+        "description": "Dedicated TripMapActivity for live location sharing.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
+        "children": [
+          {
+            "id": "Task-455628",
+            "title": "TripMapActivity Setup",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-324194",
+                "title": "Google Maps SDK Init",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-588830",
+                "title": "Location Permissions",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "Task-726284",
+            "title": "Live Location Socket Connection",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
         ]
       }
     ]
   },
   {
-    "id": "E4",
-    "title": "Map & Live Routing",
+    "id": "Epic-368936",
+    "title": "Social & Community",
     "type": "Epic",
-    "description": "Live navigation, location tracking, and map rendering.",
-    "status": "In Progress",
+    "description": "Chat and Community features.",
+    "status": "Todo",
+    "priority": "High",
+    "assignee": "",
+    "labels": [
+      "Android",
+      "V1"
+    ],
+    "attachments": [],
     "children": [
       {
-        "id": "E4-S1",
-        "title": "Live Trip Map",
+        "id": "Story-23818",
+        "title": "Chat & Messaging",
         "type": "Story",
-        "description": "Dedicated map activity for active trip navigation.",
-        "status": "In Progress",
+        "description": "Inbox list and detailed Chat screens.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E4-S1-T1", "title": "TripMapActivity Implementation", "type": "Task", "status": "Done" },
-          { "id": "E4-S1-T2", "title": "Render Route Polylines", "type": "Task", "status": "In Progress" },
-          { "id": "E4-S1-T3", "title": "Backend: Directions API integration", "type": "Task", "status": "Done" }
+          {
+            "id": "Task-615149",
+            "title": "ChatNavRoute Inbox UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-636892",
+            "title": "ChatDetailNavRoute Screen",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-218599",
+                "title": "WebSocket integration",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-612972",
+                "title": "Message bubble UI",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          }
         ]
       },
       {
-        "id": "E4-S2",
-        "title": "Location Services",
+        "id": "Story-967424",
+        "title": "Contacts Discovery",
         "type": "Story",
-        "description": "Background location updates and tracking.",
+        "description": "Contacts syncing logic.",
         "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E4-S2-T1", "title": "Foreground Service for Location", "type": "Task", "status": "Todo" },
-          { "id": "E4-S2-T2", "title": "Broadcast location to trip members", "type": "Task", "status": "Todo" }
+          {
+            "id": "Task-464867",
+            "title": "ContactsDiscoveryNavRoute",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-126445",
+                "title": "Read Contacts Permission",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-761385",
+                "title": "Hash and upload contacts",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Story-532159",
+        "title": "Community & Members",
+        "type": "Story",
+        "description": "Membership and community hub.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
+        "children": [
+          {
+            "id": "Task-150998",
+            "title": "CommunityNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-354635",
+            "title": "MembershipNavRoute Subscription handler",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
         ]
       }
     ]
   },
   {
-    "id": "E5",
-    "title": "Social, Chat & Explore",
+    "id": "Epic-503458",
+    "title": "Settings & Profile",
     "type": "Epic",
-    "description": "Community features, discovering contacts, and in-app chat.",
-    "status": "In Progress",
+    "description": "Settings and Profile Management.",
+    "status": "Todo",
+    "priority": "High",
+    "assignee": "",
+    "labels": [
+      "Android",
+      "V1"
+    ],
+    "attachments": [],
     "children": [
       {
-        "id": "E5-S1",
-        "title": "Explore & Community",
+        "id": "Story-619970",
+        "title": "Profile Viewing & Editing",
         "type": "Story",
-        "description": "Explore feeds and community posts.",
+        "description": "Viewing and Editing profile data.",
         "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E5-S1-T1", "title": "Explore Tab UI", "type": "Task", "status": "Todo" },
-          { "id": "E5-S1-T2", "title": "Community Screen", "type": "Task", "status": "Todo" },
-          { "id": "E5-S1-T3", "title": "Contacts Discovery Sync", "type": "Task", "status": "Todo" }
+          {
+            "id": "Task-721244",
+            "title": "ProfileNavRoute Screen",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-219157",
+            "title": "EditProfileNavRoute Logic",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-923610",
+                "title": "Avatar upload",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-974398",
+                "title": "Field validation",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          }
         ]
       },
       {
-        "id": "E5-S2",
-        "title": "In-App Messaging",
+        "id": "Story-143988",
+        "title": "Account & Security Settings",
         "type": "Story",
-        "description": "Private and group chats for trips.",
+        "description": "Account Security and general settings.",
         "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E5-S2-T1", "title": "Chat List Tab UI", "type": "Task", "status": "Todo" },
-          { "id": "E5-S2-T2", "title": "Chat Detail Screen (Messaging)", "type": "Task", "status": "Todo" },
-          { "id": "E5-S2-T3", "title": "Backend: Real-time messaging service", "type": "Task", "status": "Todo" }
+          {
+            "id": "Task-213883",
+            "title": "SettingsNavRoute Menu",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          },
+          {
+            "id": "Task-134276",
+            "title": "AccountSecurityNavRoute Options",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": []
+          }
         ]
       },
       {
-        "id": "E5-S3",
-        "title": "Notifications System",
+        "id": "Story-77945",
+        "title": "Vehicle Management",
         "type": "Story",
-        "description": "In-app alerts and push notifications.",
-        "status": "Done",
+        "description": "Manage connected vehicles.",
+        "status": "Todo",
+        "priority": "Medium",
+        "assignee": "",
+        "labels": [],
+        "attachments": [],
         "children": [
-          { "id": "E5-S3-T1", "title": "Notifications List Screen", "type": "Task", "status": "Done" },
-          { "id": "E5-S3-T2", "title": "Backend: Push notification service (FCM)", "type": "Task", "status": "Done" },
-          { "id": "E5-S3-T3", "title": "Handle Push Deep Links", "type": "Task", "status": "Done" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "E6",
-    "title": "Settings, Profile & Legal",
-    "type": "Epic",
-    "description": "User preferences, memberships, and legal compliance.",
-    "status": "Done",
-    "children": [
-      {
-        "id": "E6-S1",
-        "title": "Profile & Account Management",
-        "type": "Story",
-        "description": "Managing personal info and account security.",
-        "status": "Done",
-        "children": [
-          { "id": "E6-S1-T1", "title": "View Profile Screen", "type": "Task", "status": "Done" },
-          { "id": "E6-S1-T2", "title": "Edit Profile Details", "type": "Task", "status": "Done" },
-          { "id": "E6-S1-T3", "title": "Account Security Settings", "type": "Task", "status": "Done" }
-        ]
-      },
-      {
-        "id": "E6-S2",
-        "title": "App Preferences",
-        "type": "Story",
-        "description": "General settings and memberships.",
-        "status": "Done",
-        "children": [
-          { "id": "E6-S2-T1", "title": "Main Settings Menu", "type": "Task", "status": "Done" },
-          { "id": "E6-S2-T2", "title": "Membership/Subscription UI", "type": "Task", "status": "Todo" },
-          { "id": "E6-S2-T3", "title": "App Tour Trigger", "type": "Task", "status": "Done" }
-        ]
-      },
-      {
-        "id": "E6-S3",
-        "title": "Legal & Compliance",
-        "type": "Story",
-        "description": "Displaying terms and policies securely.",
-        "status": "Done",
-        "children": [
-          { "id": "E6-S3-T1", "title": "Privacy Policy Screen", "type": "Task", "status": "Done" },
-          { "id": "E6-S3-T2", "title": "Terms & Conditions Screen", "type": "Task", "status": "Done" },
-          { "id": "E6-S3-T3", "title": "Backend: Legal text delivery service", "type": "Task", "status": "Done" }
+          {
+            "id": "Task-585202",
+            "title": "VehicleManagementNavRoute UI",
+            "type": "Task",
+            "description": "",
+            "status": "Todo",
+            "priority": "Medium",
+            "assignee": "",
+            "labels": [],
+            "attachments": [],
+            "children": [
+              {
+                "id": "Subtask-122125",
+                "title": "List vehicles",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              },
+              {
+                "id": "Subtask-11555",
+                "title": "Add new vehicle",
+                "type": "Subtask",
+                "description": "",
+                "status": "Todo",
+                "priority": "Low",
+                "assignee": "",
+                "labels": [],
+                "attachments": [],
+                "children": []
+              }
+            ]
+          }
         ]
       }
     ]
