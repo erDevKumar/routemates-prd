@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { PrdTree } from './components/PrdTree';
 import { JiraDetailPanel } from './components/JiraDetailPanel';
+import { DocumentView } from './components/DocumentView';
 import defaultData from './data/prd-data.json';
 
 const generateId = (prefix) => `${prefix}-${Math.floor(Math.random() * 1000000)}`;
@@ -61,6 +62,7 @@ function App() {
   });
   
   const [selectedNodeId, setSelectedNodeId] = useState(null);
+  const [viewMode, setViewMode] = useState('jira'); // 'jira' or 'document'
 
   useEffect(() => {
     localStorage.setItem('prdData_v2', JSON.stringify(prdData));
@@ -178,6 +180,13 @@ function App() {
           <p style={{ color: 'var(--text-secondary)', margin: '0.5rem 0 0 0' }}>Agile Product Requirements Platform</p>
         </div>
         <div className="header-actions">
+          <button 
+            className="btn" 
+            onClick={() => setViewMode(prev => prev === 'jira' ? 'document' : 'jira')}
+            style={{ marginRight: '1rem', background: viewMode === 'document' ? 'var(--accent-glow)' : '' }}
+          >
+            {viewMode === 'jira' ? '📖 View Document' : '⚙️ Back to Jira'}
+          </button>
           <label className="btn">
             Import JSON
             <input type="file" accept=".json" style={{ display: 'none' }} onChange={handleImport} />
@@ -186,33 +195,37 @@ function App() {
         </div>
       </header>
 
-      <div className="two-pane-layout">
-        <div className="pane-left glass-panel">
-          <div className="pane-header">
-            <h3>Hierarchy</h3>
-            <button className="btn-small btn-primary" onClick={() => handleAddChild(null, 'Epic')}>+ Epic</button>
+      {viewMode === 'document' ? (
+        <DocumentView data={prdData} />
+      ) : (
+        <div className="two-pane-layout">
+          <div className="pane-left glass-panel">
+            <div className="pane-header">
+              <h3>Hierarchy</h3>
+              <button className="btn-small btn-primary" onClick={() => handleAddChild(null, 'Epic')}>+ Epic</button>
+            </div>
+            <div className="pane-scroll-area">
+              <PrdTree 
+                data={prdData}
+                selectedNodeId={selectedNodeId}
+                onSelectNode={setSelectedNodeId}
+                onUpdate={handleUpdateNode}
+                onDelete={handleDeleteNode}
+                onAddChild={handleAddChild}
+              />
+            </div>
           </div>
-          <div className="pane-scroll-area">
-            <PrdTree 
-              data={prdData}
-              selectedNodeId={selectedNodeId}
-              onSelectNode={setSelectedNodeId}
+
+          <div className="pane-right">
+            <JiraDetailPanel 
+              node={selectedNode}
               onUpdate={handleUpdateNode}
-              onDelete={handleDeleteNode}
-              onAddChild={handleAddChild}
+              onAddAttachment={handleAddAttachment}
+              onDeleteAttachment={handleDeleteAttachment}
             />
           </div>
         </div>
-
-        <div className="pane-right">
-          <JiraDetailPanel 
-            node={selectedNode}
-            onUpdate={handleUpdateNode}
-            onAddAttachment={handleAddAttachment}
-            onDeleteAttachment={handleDeleteAttachment}
-          />
-        </div>
-      </div>
+      )}
     </div>
   );
 }

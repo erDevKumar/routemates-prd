@@ -325,3 +325,140 @@ h1 {
   font-size: 0.9rem;
 }
 .detail-input:focus, .detail-select:focus { outline: none; border-color: var(--accent-color); }
+
+/* Document View Styles */
+.document-view-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.document-content {
+  max-width: 800px;
+  width: 100%;
+  background: var(--bg-primary);
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.document-title-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.doc-meta {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.doc-divider {
+  border: 0;
+  height: 1px;
+  background: var(--border-light);
+  margin: 2rem 0;
+}
+
+.doc-node {
+  margin-bottom: 2rem;
+}
+
+.doc-level-0 {
+  margin-top: 3rem;
+  border-bottom: 2px solid var(--epic-color);
+  padding-bottom: 1rem;
+}
+
+.doc-level-1 {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.doc-level-2, .doc-level-3, .doc-level-4 {
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  border-left: 2px solid var(--border-light);
+  padding-left: 1rem;
+}
+
+.doc-heading {
+  margin: 0 0 0.5rem 0;
+}
+
+.doc-heading.type-Epic { color: var(--epic-color); font-size: 2rem; }
+.doc-heading.type-Story { color: var(--story-color); font-size: 1.5rem; }
+.doc-heading.type-Task { color: var(--task-color); font-size: 1.25rem; }
+.doc-heading.type-Subtask { color: var(--subtask-color); font-size: 1.1rem; }
+
+.doc-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.doc-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.doc-status-Todo { background: rgba(100,100,100,0.2); color: #ccc; }
+.doc-status-In-Progress { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.doc-status-Done { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+
+.doc-priority-High { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.doc-priority-Low { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+
+.doc-assignee { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+.doc-label { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
+
+.doc-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.doc-description p {
+  margin: 0 0 0.5rem 0;
+}
+
+.doc-attachments {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.doc-inline-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+  border: 1px solid var(--border-light);
+}
+
+.doc-file-link {
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.doc-footer {
+  margin-top: 4rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
