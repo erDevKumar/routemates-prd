@@ -16,7 +16,7 @@ const getChildType = (currentType) => {
 };
 
 export const PrdNode = ({ node, level = 0, selectedNodeId, onSelectNode, onUpdate, onDelete, onAddChild }) => {
-  const [isExpanded, setIsExpanded] = useState(level === 0 || level === 1);
+  const [isExpanded, setIsExpanded] = useState(level <= 2);
   
   const hasChildren = node.children && node.children.length > 0;
   const isSelected = selectedNodeId === node.id;

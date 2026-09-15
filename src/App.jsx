@@ -56,14 +56,14 @@ const findNodeById = (nodes, id) => {
 
 function App() {
   const [prdData, setPrdData] = useState(() => {
-    const saved = localStorage.getItem('prdData');
+    const saved = localStorage.getItem('prdData_v2');
     return saved ? JSON.parse(saved) : defaultData;
   });
   
   const [selectedNodeId, setSelectedNodeId] = useState(null);
 
   useEffect(() => {
-    localStorage.setItem('prdData', JSON.stringify(prdData));
+    localStorage.setItem('prdData_v2', JSON.stringify(prdData));
   }, [prdData]);
 
   const handleUpdateNode = (id, updates) => {
